@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safe Capture</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11141b;color:#edf2ff;font:16px system-ui}main{max-width:1050px;margin:auto;padding:clamp(18px,5vw,55px)}h1{font-size:clamp(32px,6vw,54px);margin:0}p{color:#b9c4d8}section{background:#1b2230;border:1px solid #354159;padding:18px;border-radius:16px;margin-top:22px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}button,input{font:inherit}button{padding:10px 14px;border:0;border-radius:8px;background:#34435e;color:white;cursor:pointer}button.primary{background:#b6f4d2;color:#10251c;font-weight:700}button:disabled{opacity:.45;cursor:default}canvas{display:block;max-width:100%;height:auto;touch-action:none;cursor:crosshair}li{margin:8px 0}li button{margin-left:8px}#stage:empty{min-height:110px;display:grid;place-items:center;border:1px dashed #677794}#stage:empty::before{content:'Pegá una captura o elegí un archivo';color:#b9c4d8}
+</style>
+<main>
+<h1>Safe Capture</h1>
+<p>Tapá datos privados antes de compartir una captura. La imagen se procesa en tu equipo.</p>
+<section aria-label="Editor">
+<label>Elegir imagen <input id="file" type="file" accept="image/png,image/jpeg,image/webp"></label>
+<div class="controls">
+<button id="detect" disabled>Buscar correos y teléfonos</button>
+<button id="undo" disabled>Deshacer última marca</button>
+<button id="download" class="primary" disabled>Descargar PNG</button>
+<button id="copy" disabled>Copiar PNG</button>
+</div>
+<p id="status" role="status">También podés pegar con Ctrl+V.</p>
+<div id="stage"></div>
+<ul id="suggestions" aria-label="Sugerencias de redacción"></ul>
+</section>
+</main>
+<script type="module" src="/src.js"></script>
+</html>
